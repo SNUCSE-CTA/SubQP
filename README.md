@@ -1,10 +1,10 @@
 # SubgraphQueryProcessing
 Subgraph Query Processing. Handles multiple data graphs given as (name, path) pairs. 
 
-VEQ-S [1] is internally invoked to solve the problem. 
+VEQ-S [1] is internally used to solve the problem. 
 
 ## Environment
-This program requires VEQ executable file. 
+Subgraph Query Processing requires python3 running on a machine with 64 bit CentOS Linux.
 
 ## Installation
 ```sh
