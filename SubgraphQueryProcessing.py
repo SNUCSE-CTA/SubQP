@@ -48,9 +48,9 @@ def merge_gfu_graphs(graph_list):
     return name_list, "\n".join(merged_data)
 
 if __name__ == "__main__":
-    binary_path = sys.argv[1]
-    graph_list = sys.argv[2]
-    query_graph = sys.argv[3]
+    binary_path = "./VEQ_S"
+    graph_list = sys.argv[1]
+    query_graph = sys.argv[2]
     name_list, merged_gfu = (merge_gfu_graphs(graph_list))
 
     temp_data_path_ = "./tmp_input.gfu"
