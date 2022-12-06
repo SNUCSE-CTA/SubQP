@@ -13,7 +13,7 @@ git clone https://github.com/SNUCSE-CTA/SubgraphQueryProcessing
 
 ## Usage
 ```sh
-python SubgraphQueryProcessing.py <VEQ binary path> <Graph list path> <Query graph path>
+python SubgraphQueryProcessing.py <Graph list path> <Query graph path>
 ```
 
 Graph list file contains name and path for multiple data graphs;
@@ -24,6 +24,9 @@ name2 path2
 ```
 
 Query graph path must be a path to GFU file. 
+
+## Output
+Outputs list of [name] of graphs which contains the specified query as subgraphs.
 
 ## License
 Distributed under Apache License 2.0. See LICENSE for more information.
