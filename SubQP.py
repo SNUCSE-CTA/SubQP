@@ -58,7 +58,7 @@ if __name__ == "__main__":
     temporary_file_.close()
 
     veq_output_path = "./search-result.txt"
-    execution_args = generate_args("./lib/VEQ_S", '-dg', temp_data_path_, '-qg', query_graph, '-o', veq_output_path)
+    execution_args = generate_args("./bin/VEQ_S", '-dg', temp_data_path_, '-qg', query_graph, '-o', veq_output_path)
     (rc, std_output, std_error) = execute_binary(execution_args)
     # std_output = str(std_output, encoding='utf-8')
     # std_output_list = std_output.split('\n')
