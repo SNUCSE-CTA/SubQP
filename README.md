@@ -1,7 +1,7 @@
-# SubgraphQueryProcessing
-Subgraph Query Processing. Handles multiple data graphs given as (name, path) pairs. 
+# SubQP
+SubQP. Handles multiple data graphs given as (name, path) pairs. 
 
-VEQ-S [1] is internally used to solve the problem. 
+VEQ_S [1] is internally used to solve the problem. 
 
 ## Environment
 Subgraph Query Processing requires python3 running on a machine with 64 bit CentOS Linux.
@@ -13,7 +13,7 @@ git clone https://github.com/SNUCSE-CTA/SubgraphQueryProcessing
 
 ## Usage
 ```sh
-python SubgraphQueryProcessing.py <Graph list path> <Query graph path>
+python SubQP.py <Graph list path> <Query graph path>
 ```
 
 Graph list file contains name and path for multiple data graphs;
