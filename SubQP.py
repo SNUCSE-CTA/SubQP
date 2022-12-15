@@ -1,5 +1,6 @@
 import os, sys
 from subprocess import Popen, PIPE
+import networkx as nx
 
 
 def generate_args(binary, *params):
@@ -24,8 +25,10 @@ def merge_gfu_graphs(graph_list):
     ))
     merged_data = []
     name_list = []
+    graphs = []
     for i, (name, file_path) in enumerate(file_list):
         name_list.append(name)
+        g = nx.Graph()
         with open(file_path, 'r') as f:
             _ = f.readline()
 
@@ -36,6 +39,7 @@ def merge_gfu_graphs(graph_list):
             for i in range(num_vertices):
                 vertex_label = int(f.readline().strip())
                 merged_data.append(str(vertex_label))
+                g.add_node(i,label=vertex_label)
 
             merged_data.append(f.readline().strip())
             num_edges = int(merged_data[-1])
@@ -44,14 +48,22 @@ def merge_gfu_graphs(graph_list):
                 _inp = f.readline().strip()
                 merged_data.append(_inp)
                 edge = tuple(map(int, _inp.split()))
-            
+                g.add_edge(*edge)
+        graphs.append(g)
+
+    total_num_nodes = sum(map(lambda x : x.number_of_nodes(), graphs))
+    total_num_edges = sum(map(lambda x : x.number_of_edges(), graphs))
+
+    print(f"{len(file_list)} files were read!\nTotal # of Nodes = {total_num_nodes}, Total # of Edges = {total_num_edges}")
     return name_list, "\n".join(merged_data)
 
 if __name__ == "__main__":
     graph_list = sys.argv[1]
     query_graph = sys.argv[2]
-    name_list, merged_gfu = (merge_gfu_graphs(graph_list))
 
+    print(f"Searching for {query_graph} in database {graph_list}...")
+    print(f"Reading database...")
+    name_list, merged_gfu = (merge_gfu_graphs(graph_list))
     temp_data_path_ = "./tmp_input.gfu"
     temporary_file_ = open(temp_data_path_, 'w')
     temporary_file_.write(merged_gfu)
