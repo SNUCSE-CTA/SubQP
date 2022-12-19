@@ -13,7 +13,7 @@ git clone https://github.com/SNUCSE-CTA/SubQP
 
 ## Usage
 ```sh
-python SubQP.py <Graph list path> <Query graph path>
+python3 SubQP.py <Graph list path> <Query graph path>
 ```
 
 Graph list file contains name and path for multiple data graphs;
